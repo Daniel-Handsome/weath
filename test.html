@@ -24,9 +24,12 @@
             )
             .then(response => response.json())
             .then(function (data) {
-                var _b = data["records"]["locations"][0]["location"]
+                var _b = data["records"]["locations"][0]["location"];
+                
+
                 _b.forEach(
                     function (_data) {
+                        console.log(_data);
                         _c[_c.indexOf(_data["locationName"])] = {
                             locationName: _data["locationName"],
                             weather: _data["weatherElement"][6]["time"][0]["elementValue"][0]["value"],
