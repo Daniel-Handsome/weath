@@ -1,0 +1,63 @@
+%flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.load-text {
+
+    font-size: 50px;
+    line-height: 40px;
+}
+
+.load-page {
+    width: 100%;
+    height: 100vh;
+    background-color: brown;
+    transition: 1s;
+
+    @extend %flex;
+    flex-direction: column;
+    padding-top: 40px;
+
+
+    // 這邊不懂
+    &.good{
+        opacity: 0;
+    }
+
+    .load {
+        width: 600px;
+        height: 60px;
+        background-color: cornflowerblue;
+        position: relative;
+        border-radius: 30px;
+
+
+        .progress {
+            padding: 20px 15px;
+            width: 95%;
+            height: 80%;
+            background-color: darksalmon;
+            line-height: 60px;
+            position: absolute;
+            top: 50%;
+            left: 1%;
+            transform: translateY(-50%);
+            border-radius: 30px;
+        }
+    }
+
+}
