@@ -8,13 +8,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(17, 17, 17, 0.746); */
+  background-color:#000000;
 }
 
 .swiper-container {
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
 }
 
 .swiper-slide {
@@ -23,7 +23,7 @@ body {
   width: 500px;
   height: 600px;
   background-color: #000;
-  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0006);
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
 }
 
 /* .img1{
