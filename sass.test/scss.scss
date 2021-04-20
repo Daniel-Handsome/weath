@@ -1,0 +1,24 @@
+@mixin size($width, $hight) {
+  width: $width;
+  height: $hight;
+ 
+  background: {
+    color:black;
+  }
+}
+
+%box{
+  border: 10px;
+  margin-bottom: 5px;
+}
+.boxs {
+
+  background-color: aquamarine;
+  
+  @for $i from 1 to 5 {
+    .box#{$i} {
+      @extend %box;
+      @include size(100px, 100px);
+    }
+  }
+}
