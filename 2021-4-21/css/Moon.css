@@ -1,0 +1,11 @@
+@import url(./_variable.scss);
+@import url(./_function.scss);
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+/*# sourceMappingURL=Moon.css.map */

@@ -1,0 +1,17 @@
+@import "variable";
+@import url(./_function.scss);
+
+
+html,body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    @include flex(center,center);
+    height: 100vh;
+}
+
+.card{
+    @include size(600px, 400px, 15px);
+}
