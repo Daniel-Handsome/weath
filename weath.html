@@ -67,6 +67,8 @@
                                         <ul class="list-group list-group-flush">
                                              <li class="list-group-item">氣溫:${city["weatherElement"][2]["time"][0]["parameter"]["parameterName"]}度C</li>
                                              <li class="list-group-item">天氣現況:${city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]}</li>
+                                             
+
                                              <li class="list-group-item">降雨機率:${city["weatherElement"][1]["time"][0]["parameter"]["parameterName"]}%</li>
                                         </ul>
                                         <div class="card-body">
@@ -74,6 +76,7 @@
                                         </div>
                                     </div>
                             </div> `
+                            console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
                 });
             });
     </script>

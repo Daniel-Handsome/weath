@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/cord.css">
 
     <style>
-    
+
     </style>
     <!-- //最後完成看能不能找定位然後排序城市 -->
 </head>
@@ -42,9 +42,27 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+
+
+
+
+
+
+
+
+
         const swiper_wrapper = document.querySelector('.swiper-wrapper');
 
-        var sunDay =
+        var cloud = ` <svg width="300px" height="300px">
+        <circle cy="70px" cx="70px" r="50" fill="yellow" stroke="yellow" stroke-width="50px" stroke-dasharray="6px" />
+        <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
+        <circle cx="140" cy="85" r="60" fill="#808A87" />
+        <circle cx="80" cy="100" r="50" fill="#808A87" />
+    </svg>`;
+
+        var sunDay = ` <svg width="300px" height="300px">
+        <circle cx="100" cy="100" r="60" fill="yellow" stroke="yellow" stroke-width="80px" stroke-dasharray="8px" />
+    </svg>`;
 
         fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON')
             .then(function (response) {
@@ -54,7 +72,20 @@
                 // console.log(JSON.parse(myJson));
                 const citys = JSON.parse(myJson)["records"]["location"];
                 citys.forEach(function (city, index) {
+                    console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
                     // console.log(city["weatherElement"][index]["time"][index]);
+                    // console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
+                    var weath = "天氣";
+                    if (city["weatherElement"][0]["time"][0]["parameter"]["parameterName"] == "晴時多雲") {
+                        weath = sunDay;
+
+                    }
+                    else if (city["weatherElement"][0]["time"][0]["parameter"]["parameterName"] == "多雲時晴") {
+                        weath = cloud;
+                    }
+
+
+
                     swiper_wrapper.innerHTML += `
                     <div class="swiper-slide">
                         <div class="cards">
@@ -65,55 +96,53 @@
                                     <div class="snow">${city["weatherElement"][1]["time"][0]["startTime"]}</div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                
-                            </div>
+                            <div class="card-body">${weath}</div>
                         </div>
                     </div>`
                 });
 
 
                 var swiper = new Swiper('.swiper-container', {
-                        effect: 'coverflow',
-                        grabCursor: true,
-                        centeredSlides: true,
-                        slidesPerView: 'auto',
-                        coverflowEffect: {
-                            rotate: 20,
-                            stretch: 0,
-                            depth: 200,
-                            modifier: 1,
-                            slideShadows: true,
-                        },
-                        loop: true,
-                        autoplay: {
-                            delay: 3000,
-                            disableOnInteraction: false,
-                        },
-                        // pagination: {
-                        //     el: '.swiper-pagination',
-                        // },
-                    });
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 20,
+                        stretch: 0,
+                        depth: 200,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    // },
+                });
 
 
-                    // if(document.body.style.width ="100%"){
-                    //     console.log(1);
-                        
-                    //     window.resizeBy(1, 1);
-                    //     var width=window.innerWidth;
-                    //     width="1911px";
-                    //     console.log(width);
-                    // }
-                    
+                // if(document.body.style.width ="100%"){
+                //     console.log(1);
 
-                    // window.onresize = resize;
+                //     window.resizeBy(1, 1);
+                //     var width=window.innerWidth;
+                //     width="1911px";
+                //     console.log(width);
+                // }
 
-                    // function resize() {
-                    //     alert("检测到resize事件!");
-                    //     if (document.documentElement.clientWidth > 1){ 
-                    //         document.querySelector('swiper-container').style.width = "100%" 
-                    //     }
-                    // }
+
+                // window.onresize = resize;
+
+                // function resize() {
+                //     alert("检测到resize事件!");
+                //     if (document.documentElement.clientWidth > 1){ 
+                //         document.querySelector('swiper-container').style.width = "100%" 
+                //     }
+                // }
             });
     </script>
 
