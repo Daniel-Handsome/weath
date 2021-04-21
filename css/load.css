@@ -27,11 +27,9 @@ body {
   flex-direction: column;
   padding-top: 40px;
 }
-
 .load-page.good {
   opacity: 0;
 }
-
 .load-page .load {
   width: 600px;
   height: 60px;
@@ -39,7 +37,6 @@ body {
   position: relative;
   border-radius: 30px;
 }
-
 .load-page .load .progress {
   padding: 20px 15px;
   width: 95%;
@@ -51,5 +48,4 @@ body {
   left: 1%;
   transform: translateY(-50%);
   border-radius: 30px;
-}
-/*# sourceMappingURL=load.css.map */
+}/*# sourceMappingURL=load.css.map */

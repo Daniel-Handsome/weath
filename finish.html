@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/weath.css">
+
+
+    <!-- //最後完成看能不能找定位然後排序城市 -->
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide"><img
+                    src="./img/Great wave of kanagawa think you guys could find me a wallpaper similar to this.png"
+                    alt=""></div>
+            <div class="swiper-slide"><img src="./img/Japanese Illustration Waves.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/Painting Previews.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/Витамин†.jpg" alt=""></div> -->
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper_wrapper = document.querySelector('.swiper-wrapper');
+
+        var sunDay =
+
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON')
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (myJson) {
+                // console.log(JSON.parse(myJson));
+                const citys = JSON.parse(myJson)["records"]["location"];
+                citys.forEach(function (city, index) {
+                    // console.log(city["weatherElement"][index]["time"][index]);
+                    swiper_wrapper.innerHTML += `
+                    <div class="swiper-slide">
+                        <div class="cards">
+                            <div class="header">
+                                <div class="left">${city["weatherElement"][2]["time"][0]["parameter"]["parameterName"]}</div>
+                                <div class="data">
+                                    <div class="MonDay">${city["locationName"]}</div>
+                                    <div class="snow">${city["weatherElement"][1]["time"][0]["startTime"]}</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                
+                            </div>
+                        </div>
+                    </div>`
+                });
+
+
+                var swiper = new Swiper('.swiper-container', {
+                        effect: 'coverflow',
+                        grabCursor: true,
+                        centeredSlides: true,
+                        slidesPerView: 'auto',
+                        coverflowEffect: {
+                            rotate: 20,
+                            stretch: 0,
+                            depth: 200,
+                            modifier: 1,
+                            slideShadows: true,
+                        },
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        // pagination: {
+                        //     el: '.swiper-pagination',
+                        // },
+                    });
+
+
+                    // if(document.body.style.width ="100%"){
+                    //     console.log(1);
+                        
+                    //     window.resizeBy(1, 1);
+                    //     var width=window.innerWidth;
+                    //     width="1911px";
+                    //     console.log(width);
+                    // }
+                    
+
+                    // window.onresize = resize;
+
+                    // function resize() {
+                    //     alert("检测到resize事件!");
+                    //     if (document.documentElement.clientWidth > 1){ 
+                    //         document.querySelector('swiper-container').style.width = "100%" 
+                    //     }
+                    // }
+            });
+    </script>
+
+</body>
+
+</html>
