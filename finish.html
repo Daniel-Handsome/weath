@@ -37,7 +37,7 @@
 
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination"></div>                                                                                                                                                                                                                                                                                                                                                          
     </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -48,14 +48,22 @@
         <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
         <circle cx="140" cy="85" r="60" fill="#808A87" />
         <circle cx="80" cy="100" r="50" fill="#808A87" />
-        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue"/>
-        <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue"/>
-        <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue"/>
-        <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue"/>
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="70" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="110" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="150" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="190" cy="180" rx="5" ry="10" fill="blue" />
+
+        <ellipse cx="50" cy="230" rx="5" ry="10" fill="blue" />
+        <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue" />
+        <ellipse cx="130" cy="230" rx="5" ry="10" fill="blue" />
+        <ellipse cx="170" cy="230" rx="5" ry="10" fill="blue" />
+
+            
     </svg>`
-    
+
         // thender
-        var thender= `<svg width="300px" height="300px">
+        var thender = `<svg width="300px" height="300px">
         <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
         <circle cx="140" cy="85" r="60" fill="#808A87" />
         <circle cx="80" cy="100" r="50" fill="#808A87" />
@@ -104,19 +112,19 @@
                         weathSee = sunDay;
 
                     } else if (
-                        weath == "多雲時晴"
-                        ||weath == "陰天" 
-                        ) {
+                        weath == "多雲時晴" ||
+                        weath == "陰天"
+                    ) {
                         weathSee = cloud;
                     } else if (
-                        weath == '多雲短暫雨' 
-                        ||weath == '陰短暫雨' 
-                        ) {
+                        weath == '多雲短暫雨' ||
+                        weath == '陰短暫雨'
+                    ) {
                         weathSee = rain;
-                    } else if(
-                        weath == '陰時多雲短暫雨'
-                        ||weath == "多雲"
-                    ){
+                    } else if (
+                        weath == '陰時多雲短暫雨' ||
+                        weath == "多雲"
+                    ) {
                         weathSee = thender;
                     };
 
