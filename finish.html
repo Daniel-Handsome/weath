@@ -18,14 +18,14 @@
 
 <body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!-- <div class="swiper-slide"><img
@@ -42,16 +42,33 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-
-
-
-
-
-
-
-
-
         const swiper_wrapper = document.querySelector('.swiper-wrapper');
+
+        var rain = `<svg width="300px" height="300px">
+        <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
+        <circle cx="140" cy="85" r="60" fill="#808A87" />
+        <circle cx="80" cy="100" r="50" fill="#808A87" />
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue"/>
+        <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue"/>
+        <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue"/>
+        <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue"/>
+    </svg>`
+    
+        // thender
+        var thender= `<svg width="300px" height="300px">
+        <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
+        <circle cx="140" cy="85" r="60" fill="#808A87" />
+        <circle cx="80" cy="100" r="50" fill="#808A87" />
+
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue" />
+        <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue" />
+        
+        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-20) translate(-10,30)" />
+        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-10) translate(-80,-10)" />
+
+    </svg>`;
 
         var cloud = ` <svg width="300px" height="300px">
         <circle cy="70px" cx="70px" r="50" fill="yellow" stroke="yellow" stroke-width="50px" stroke-dasharray="6px" />
@@ -62,9 +79,11 @@
 
         var sunDay = ` <svg width="300px" height="300px">
         <circle cx="100" cy="100" r="60" fill="yellow" stroke="yellow" stroke-width="80px" stroke-dasharray="8px" />
-    </svg>`;
+        </svg>`;
 
-        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON')
+        fetch(
+                'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON'
+            )
             .then(function (response) {
                 return response.text();
             })
@@ -75,14 +94,32 @@
                     console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
                     // console.log(city["weatherElement"][index]["time"][index]);
                     // console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
-                    var weath = "天氣";
-                    if (city["weatherElement"][0]["time"][0]["parameter"]["parameterName"] == "晴時多雲") {
-                        weath = sunDay;
 
-                    }
-                    else if (city["weatherElement"][0]["time"][0]["parameter"]["parameterName"] == "多雲時晴") {
-                        weath = cloud;
-                    }
+
+                    const weath = city["weatherElement"][0]["time"][0]["parameter"]["parameterName"];
+                    var weathSee = "天氣";
+
+
+                    if (weath == "晴時多雲") {
+                        weathSee = sunDay;
+
+                    } else if (
+                        weath == "多雲時晴"
+                        ||weath == "陰天" 
+                        ) {
+                        weathSee = cloud;
+                    } else if (
+                        weath == '多雲短暫雨' 
+                        ||weath == '陰短暫雨' 
+                        ) {
+                        weathSee = rain;
+                    } else if(
+                        weath == '陰時多雲短暫雨'
+                        ||weath == "多雲"
+                    ){
+                        weathSee = thender;
+                    };
+
 
 
 
@@ -96,7 +133,7 @@
                                     <div class="snow">${city["weatherElement"][1]["time"][0]["startTime"]}</div>
                                 </div>
                             </div>
-                            <div class="card-body">${weath}</div>
+                            <div class="card-body">${weathSee}</div>
                         </div>
                     </div>`
                 });
