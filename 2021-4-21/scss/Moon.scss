@@ -1,6 +1,5 @@
-@import "variable";
+@import 'variable';
 @import url(./_function.scss);
-
 
 html,body{
     padding: 0;
@@ -8,7 +7,7 @@ html,body{
 }
 
 body{
-    @include flex(center,center);
+    @include flex(center, center);
     height: 100vh;
 }
 
