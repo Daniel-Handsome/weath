@@ -19,25 +19,18 @@
 <body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
-    </script>
+        </script>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide"><img
-                    src="./img/Great wave of kanagawa think you guys could find me a wallpaper similar to this.png"
-                    alt=""></div>
-            <div class="swiper-slide"><img src="./img/Japanese Illustration Waves.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./img/Painting Previews.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./img/Витамин†.jpg" alt=""></div> -->
-
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>                                                                                                                                                                                                                                                                                                                                                          
+        <div class="swiper-pagination"></div>
     </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -45,58 +38,125 @@
         const swiper_wrapper = document.querySelector('.swiper-wrapper');
 
         var rain = `<svg width="300px" height="300px">
-        <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
-        <circle cx="140" cy="85" r="60" fill="#808A87" />
-        <circle cx="80" cy="100" r="50" fill="#808A87" />
-        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="70" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="110" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="150" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="190" cy="180" rx="5" ry="10" fill="blue" />
-
-        <ellipse cx="50" cy="230" rx="5" ry="10" fill="blue" />
-        <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue" />
-        <ellipse cx="130" cy="230" rx="5" ry="10" fill="blue" />
-        <ellipse cx="170" cy="230" rx="5" ry="10" fill="blue" />
-
-            
+        <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>
+        <circle cx="140" cy="85" r="60" fill="#808A87"></circle>
+        <circle cx="80" cy="100" r="50" fill="#808A87"></circle>
+        <animateTransform attributeName="transform" type="translate" values="10,-80;-5,-70;-10,-80" dur="2s"
+            repeatCount="indefinite" />
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,95;0,120" dur="0.5s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="70" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,85;0,120" dur="0.4s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="110" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,75;0,120" dur="0.3s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="150" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,65;0,120" dur="0.6s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="190" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,55;0,120" dur="0.4s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="50" cy="230" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,45;0,120" dur="0.5s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,35;0,120" dur="0.6s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="130" cy="230" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,20;0,120" dur="0.7s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="170" cy="230" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,30;0,120" dur="0.8s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,40;0,120" dur="0.6s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.6s"
+                repeatCount="indefinite" />
+        </ellipse>
     </svg>`
 
         // thender
-        var thender = `<svg width="300px" height="300px">
+        var thender = `<svg width="450px" height="450px">
         <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
         <circle cx="140" cy="85" r="60" fill="#808A87" />
         <circle cx="80" cy="100" r="50" fill="#808A87" />
-
-        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue" />
-        <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue" />
-        
-        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-20) translate(-10,30)" />
-        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-10) translate(-80,-10)" />
-
+        <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.7s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.4s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.6s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue">
+            <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.5s"
+                repeatCount="indefinite" />
+        </ellipse>
+        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-20) translate(-10,30)">
+            <animateTransform attributeName="transform" type="translate" values="-40,-10;-60,70;-80,120" dur="0.7s"
+                repeatCount="indefinite" />
+        </polyline>
+        <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-10) translate(-80,-10)">
+            <animateTransform attributeName="transform" type="translate" values="80,-10;100,70;120,120" dur="0.8s"
+                repeatCount="indefinite" />
+        </polyline>
+        <animateTransform attributeName="transform" type="translate" from="0" to="50" values="120,0;80,0;12,0"
+            repeatCount="indefinite" dur="4s">
     </svg>`;
 
-        var cloud = ` <svg width="300px" height="300px">
-        <circle cy="70px" cx="70px" r="50" fill="yellow" stroke="yellow" stroke-width="50px" stroke-dasharray="6px" />
+        var cloud = `  <svg width="450px" height="450px">
+        <circle cy="70px" cx="70px" r="50" fill="yellow" stroke="yellow" stroke-width="50px" stroke-dasharray="6px">
+            <animateTransform attributeName="transform" type="translate" from="0" to="0" values="0;30;0"
+                repeatCount="indefinite" dur="4s" additive="sum" />
+            
+        </circle>>
         <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
         <circle cx="140" cy="85" r="60" fill="#808A87" />
         <circle cx="80" cy="100" r="50" fill="#808A87" />
+        <animateTransform attributeName="transform" type="translate" from="0" to="50" values="150;130;150"
+            repeatCount="indefinite" dur="4s">
     </svg>`;
 
-        var sunDay = ` <svg width="300px" height="300px">
-        <circle cx="100" cy="100" r="60" fill="yellow" stroke="yellow" stroke-width="80px" stroke-dasharray="8px" />
-        </svg>`;
+        var sunDay = `   <svg width="450px" height="450px" >
+        <circle id="sun" cx="100" cy="100" r="60" fill="yellow" stroke="yellow" stroke-width="80px"
+            stroke-dasharray="8px">
+            <animateTransform attributeName="transform" type="translate" from="1" to="5" values="0;50;25"
+                repeatCount="indefinite" dur="4s" additive="sum" />
+            <animateTransform attributeName="transform" dur="4s" type="scale" from="1" to="2" repeatCount="indefinite"
+                additive="sum" />
+            <animateTransform attributeName="transform" dur="2s" type="rotate" from="0,80,80" to="360,80,80"
+                repeatCount="indefinite" additive="sum" />
+
+        </circle>
+
+    </svg>`;
 
         fetch(
-                'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON'
-            )
+            'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON'
+        )
             .then(function (response) {
                 return response.text();
             })
             .then(function (myJson) {
-                // console.log(JSON.parse(myJson));
+                console.log(JSON.parse(myJson));
                 const citys = JSON.parse(myJson)["records"]["location"];
                 citys.forEach(function (city, index) {
                     console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
@@ -113,7 +173,9 @@
 
                     } else if (
                         weath == "多雲時晴" ||
-                        weath == "陰天"
+                        weath == "陰天" ||
+                        weath == '陰時多雲' ||
+                        weath == '多雲時陰'
                     ) {
                         weathSee = cloud;
                     } else if (
@@ -123,12 +185,11 @@
                         weathSee = rain;
                     } else if (
                         weath == '陰時多雲短暫雨' ||
+                        weath == '多雲時陰短暫雨' ||
                         weath == "多雲"
                     ) {
                         weathSee = thender;
                     };
-
-
 
 
                     swiper_wrapper.innerHTML += `
@@ -141,7 +202,7 @@
                                     <div class="snow">${city["weatherElement"][1]["time"][0]["startTime"]}</div>
                                 </div>
                             </div>
-                            <div class="card-body">${weathSee}</div>
+                            <div class="card-body ">${weathSee}</div>
                         </div>
                     </div>`
                 });
@@ -168,26 +229,6 @@
                     //     el: '.swiper-pagination',
                     // },
                 });
-
-
-                // if(document.body.style.width ="100%"){
-                //     console.log(1);
-
-                //     window.resizeBy(1, 1);
-                //     var width=window.innerWidth;
-                //     width="1911px";
-                //     console.log(width);
-                // }
-
-
-                // window.onresize = resize;
-
-                // function resize() {
-                //     alert("检测到resize事件!");
-                //     if (document.documentElement.clientWidth > 1){ 
-                //         document.querySelector('swiper-container').style.width = "100%" 
-                //     }
-                // }
             });
     </script>
 
