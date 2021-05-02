@@ -14,6 +14,7 @@ body {
     background: linear-gradient(#111425, #3751e0);
     background-attachment: fixed;
     overflow: hidden;
+    pointer-events:none;
 }
 
 .moon {
@@ -25,6 +26,7 @@ body {
     background: #fff;
     border-radius: 50%;
     z-index: 1000;
+    pointer-events:none;
 }
 
 .moon:after {
@@ -37,6 +39,7 @@ body {
     border-radius: 50%;
     background: linear-gradient(#111425, #3751e0);
     background-attachment: fixed;
+    pointer-events:none;
 }
 
 .forest {
@@ -46,6 +49,7 @@ body {
     width: 100%;
     z-index: 1000;
     transform: scale(1.2);
+    pointer-events:none;
 }
 
 .scene i {
@@ -53,6 +57,7 @@ body {
     background: #fff;
     border-radius: 50%;
     animation: animate linear infinite;
+    pointer-events:none;
 }
 
 @keyframes animate {
@@ -78,6 +83,7 @@ body {
     max-width: 600px;
     z-index: 10000;
     animation: animateCloud 35s linear infinite;
+    pointer-events:none;
 }
 
 .cloud2 {
@@ -87,6 +93,7 @@ body {
     max-width: 500px;
     z-index: 10000;
     animation: animateCloud 35s linear infinite;
+    pointer-events:none;
 }
 
 .cloud3 {
@@ -96,6 +103,7 @@ body {
     max-width: 600px;
     z-index: 10000;
     animation: animateCloud 80s linear infinite;
+    pointer-events:none;
 }
 
 .cloud4 {
@@ -106,6 +114,7 @@ body {
     z-index: 10000;
     animation: animateCloud 70s linear infinite;
     animation-delay: -20s;
+    pointer-events:none;
 }
 
 .cloud5 {
@@ -116,6 +125,7 @@ body {
     z-index: 10000;
     animation: animateCloud 40s linear infinite;
     animation-delay: -5s;
+    pointer-events:none;
 }
 
 .cloud6 {
@@ -126,6 +136,7 @@ body {
     z-index: 10000;
     animation: animateCloud 30s linear infinite;
     animation-delay: -10s;
+    pointer-events:none;
 }
 
 @keyframes animateCloud {
@@ -155,8 +166,6 @@ body {
     min-height: 100vh;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +184,7 @@ body {
     background-size: cover;
     width: 500px;
     height: 600px;
-    background-color: #000;
+
     -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
 }
 
@@ -201,58 +210,60 @@ body {
 }
 
 body {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(240deg, rgba(150, 50, 50, 0.3), rgba(0, 0, 200, 0));
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
 .cards {
     width: 500px;
     height: 600px;
-    background: #eee;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+    cursor: pointer;
 }
+
+
 
 .header {
     width: 100%;
     height: 200px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    display: block;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
 }
 
 .left {
-    display: -webkit-box;
-    display: -ms-flexbox;
+    padding-top: 30px;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    font-size: 60px;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.data {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .MonDay {
-    font-size: 50px;
-    line-height: 100px;
+    
+    width: 100%;
+    font-size: 20px;
+    line-height: 50px;
     text-align: center;
 }
 
 .snow {
-    font-size: 50px;
-    line-height: 100px;
+    width: 100%;
+    font-size: 20px;
+    line-height: 50px;
     text-align: center;
 }
 
@@ -262,35 +273,62 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+   
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+   
     align-items: center;
+}
+.card-body svg{
+    padding-top: 35px;
 }
 
 
-.clock{
+.cards:hover .card-body{
+    z-index: 9999999999;
+    transform: scale(1.5) ;
+}
+.cards:hover .header>.left{
+    z-index: 9999999999;
+    transform: scale(1.5)translateY(-10px) translateX(-200px)rotate(-45deg) ;
+}
+.cards:hover .header>.data{
+    flex-wrap: nowrap;
+    z-index: 9999999999;
+    transform: scale(1.5)translateY(-60px) translateX(70px);
+}
+.cards:hover .header .MonDay{
+    font-size: 30px;
+    width: 45%;
+}
+.cards:hover .header .snow{
+    transform: rotate(45deg);
+    width: 30%;
+    font-size: 30px;
+}
+
+
+
+.clock {
     position: absolute;
     top: 0;
-    right: 80px;
+    right: 40px;
     width: 250px;
     height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./clock.png);
+    background-image: url(./clock/clock.png);
     background-size: cover;
     border: 4px solid #091921;
     border-radius: 50%;
     /* position: relative; */
     box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
-                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
-                0 15px 15px rgba(255, 255, 255, 0.05),
-                inset 0 -15px 15px rgba(255, 255, 255, 0.05)
+        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+        0 15px 15px rgba(255, 255, 255, 0.05),
+        inset 0 -15px 15px rgba(255, 255, 255, 0.05)
 }
-.clock:before{
+
+.clock:before {
     content: "";
     position: absolute;
     width: 15px;
@@ -299,61 +337,69 @@ body {
     border-radius: 50%;
     z-index: 10000;
 }
+
 .clock .hour,
 .clock .min,
-.clock .sec
-{
+.clock .sec {
     position: absolute;
 }
-.clock .hour, .hr
-{
+
+.clock .hour,
+.hr {
     width: 160px;
     height: 160px;
 }
-.clock .min, .mn
-{
+
+.clock .min,
+.mn {
     width: 190px;
     height: 190px;
 }
-.clock .sec, .sc
-{
+
+.clock .sec,
+.sc {
     width: 230px;
     height: 230px;
 }
-.hr, .mn, .sc
-{
+
+.hr,
+.mn,
+.sc {
     /* 可以對子曾的絕對定位引響 */
     display: flex;
     justify-content: center;
     /* align-items: center; */
     position: absolute;
 }
-.hr:before
-{
+
+.hr:before {
     content: "";
     position: absolute;
     width: 8px;
     height: 80px;
     background: #ff105e;
     z-index: 10;
-    border-radius:6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
-.mn:before{
+
+.mn:before {
     content: "";
     position: absolute;
     width: 4px;
     height: 90px;
     background: #fff;
     z-index: 11;
-    border-radius:6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
-.sc:before{
+
+.sc:before {
     content: "";
     position: absolute;
     width: 2px;
     height: 150px;
     background: #fff;
     z-index: 12;
-    border-radius:6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
+
 /*# sourceMappingURL=cord.css.map */
