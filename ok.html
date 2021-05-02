@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./backgroud.css">
+
+</head>
+
+<body>
+    <div class="scene">
+        <div class="moon"></div>
+        <img src="./background/forest.png" class="forest" alt="">
+        <img src="./background/cloud1.png" class="cloud1" alt="">
+        <img src="./background/cloud2.png" class="cloud2" alt="">
+        <img src="./background/cloud3.png" class="cloud3" alt="">
+        <img src="./background/cloud1.png" class="cloud4" alt="">
+        <img src="./background/cloud2.png" class="cloud5" alt="">
+        <img src="./background/cloud3.png" class="cloud6" alt="">
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+        </script>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<!-- 背景 -->
+    <script>
+        function starts() {
+            let count = 500;
+            let scene = document.querySelector('.scene');
+            let i = 0;
+            while (i < count) {
+                let star = document.createElement('i');
+                let x = Math.floor(Math.random() * window.innerWidth);
+
+                let y = Math.floor(Math.random() * window.innerHeight);
+                let duration = Math.random() * 10;
+                let size = Math.random() * 2;
+
+
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                star.style.width = 1 + size + 'px';
+                star.style.height = 1 + size + 'px';
+
+                // animationDuration see
+                star.style.animationDuration = 5 + duration + 's';
+                star.style.animationDelay = duration + 's';
+
+                scene.appendChild(star);
+                i++
+            }
+        }
+        starts();
+    </script>
+
+
+<!-- 卡片 -->
+    <script>
+        const swiper_wrapper = document.querySelector('.swiper-wrapper');
+
+        var rain = `<svg width="300px" height="300px">
+    <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>
+    <circle cx="140" cy="85" r="60" fill="#808A87"></circle>
+    <circle cx="80" cy="100" r="50" fill="#808A87"></circle>
+    <animateTransform attributeName="transform" type="translate" values="10,-80;-5,-70;-10,-80" dur="2s"
+        repeatCount="indefinite" />
+    <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,95;0,120" dur="0.5s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="70" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,85;0,120" dur="0.4s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="110" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,75;0,120" dur="0.3s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="150" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,65;0,120" dur="0.6s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="190" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,55;0,120" dur="0.4s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="50" cy="230" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,45;0,120" dur="0.5s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,35;0,120" dur="0.6s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="130" cy="230" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,20;0,120" dur="0.7s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="170" cy="230" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,30;0,120" dur="0.8s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,40;0,120" dur="0.6s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="90" cy="230" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.6s"
+            repeatCount="indefinite" />
+    </ellipse>
+</svg>`
+
+        // thender
+        var thender = `<svg width="450px" height="450px">
+    <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
+    <circle cx="140" cy="85" r="60" fill="#808A87" />
+    <circle cx="80" cy="100" r="50" fill="#808A87" />
+    <ellipse cx="40" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.7s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="80" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.4s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="120" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.6s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="160" cy="180" rx="5" ry="10" fill="blue">
+        <animateTransform attributeName="transform" type="translate" values="0,-10;0,70;0,120" dur="0.5s"
+            repeatCount="indefinite" />
+    </ellipse>
+    <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-20) translate(-10,30)">
+        <animateTransform attributeName="transform" type="translate" values="-40,-10;-60,70;-80,120" dur="0.7s"
+            repeatCount="indefinite" />
+    </polyline>
+    <polyline points="30,300 80,225 80,275 130,200" fill="yellow" transform="rotate(-10) translate(-80,-10)">
+        <animateTransform attributeName="transform" type="translate" values="80,-10;100,70;120,120" dur="0.8s"
+            repeatCount="indefinite" />
+    </polyline>
+    <animateTransform attributeName="transform" type="translate" from="0" to="50" values="120,0;80,0;12,0"
+        repeatCount="indefinite" dur="4s">
+</svg>`;
+
+        var cloud = `  <svg width="450px" height="450px">
+    <circle cy="70px" cx="70px" r="50" fill="yellow" stroke="yellow" stroke-width="50px" stroke-dasharray="6px">
+        <animateTransform attributeName="transform" type="translate" from="0" to="0" values="0;30;0"
+            repeatCount="indefinite" dur="4s" additive="sum" />
+        
+    </circle>>
+    <rect x="10" y="80" width="210px" height="80px" fill="#808A87" rx="40px" ry="50px"></rect>>
+    <circle cx="140" cy="85" r="60" fill="#808A87" />
+    <circle cx="80" cy="100" r="50" fill="#808A87" />
+    <animateTransform attributeName="transform" type="translate" from="0" to="50" values="150;130;150"
+        repeatCount="indefinite" dur="4s">
+</svg>`;
+
+        var sunDay = `   <svg width="450px" height="450px" >
+    <circle id="sun" cx="100" cy="100" r="60" fill="yellow" stroke="yellow" stroke-width="80px"
+        stroke-dasharray="8px">
+        <animateTransform attributeName="transform" type="translate" from="1" to="5" values="0;50;25"
+            repeatCount="indefinite" dur="4s" additive="sum" />
+        <animateTransform attributeName="transform" dur="4s" type="scale" from="1" to="2" repeatCount="indefinite"
+            additive="sum" />
+        <animateTransform attributeName="transform" dur="2s" type="rotate" from="0,80,80" to="360,80,80"
+            repeatCount="indefinite" additive="sum" />
+
+    </circle>
+
+</svg>`;
+
+        fetch(
+            'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON'
+        )
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (myJson) {
+                console.log(JSON.parse(myJson));
+                const citys = JSON.parse(myJson)["records"]["location"];
+                citys.forEach(function (city, index) {
+                   
+                    // console.log(city["weatherElement"][index]["time"][index]);
+                    // console.log(city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]);
+
+
+                    const weath = city["weatherElement"][0]["time"][0]["parameter"]["parameterName"];
+                    var weathSee = "天氣";
+
+
+                    if (weath == "晴時多雲") {
+                        weathSee = sunDay;
+
+                    } else if (
+                        weath == "多雲時晴" ||
+                        weath == "陰天" ||
+                        weath == '陰時多雲' ||
+                        weath == '多雲時陰'
+                    ) {
+                        weathSee = cloud;
+                    } else if (
+                        weath == '多雲短暫雨' ||
+                        weath == '陰短暫雨'
+                    ) {
+                        weathSee = rain;
+                    } else if (
+                        weath == '陰時多雲短暫雨' ||
+                        weath == '多雲時陰短暫雨' ||
+                        weath == "多雲"
+                    ) {
+                        weathSee = thender;
+                    };
+
+                    // <div class="snow">${city["weatherElement"][1]["time"][0]["startTime"]}</div>
+                    swiper_wrapper.innerHTML += `
+                <div class="swiper-slide">
+                    <div class="cards">
+                        <div class="header">
+                            <div class="left">${city["weatherElement"][2]["time"][0]["parameter"]["parameterName"]}<sup>度</sub></div>
+                            <div class="data">
+                                <div class="MonDay">${city["locationName"]}</div>
+                                <div class="snow">${city["weatherElement"][0]["time"][0]["parameter"]["parameterName"]}</div>
+                            </div>
+                        </div>
+                        <div class="card-body ">${weathSee}</div>
+                    </div>
+                </div>`
+                });
+
+
+                var swiper = new Swiper('.swiper-container', {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 20,
+                        stretch: 0,
+                        depth: 200,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    // pagination: {
+                    //     el: '.swiper-pagination',
+                    // },
+                });
+            });
+    </script>
+
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+        setInterval(() => {
+
+            let day = new Date();
+            let hh = day.getHours() * 30;
+
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+
+            hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${(mm)}deg)`;
+            sc.style.transform = `rotateZ(${(ss)}deg)`;
+
+        });
+    </script>
+   
+</body>
+
+</html>
