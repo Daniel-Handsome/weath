@@ -283,7 +283,7 @@ body {
 }
 
 
-.cards:hover .card-body{
+/* .cards:hover .card-body{
     z-index: 9999999999;
     transform: scale(1.5) ;
 }
@@ -304,7 +304,7 @@ body {
     transform: rotate(45deg);
     width: 30%;
     font-size: 30px;
-}
+} */
 
 
 
