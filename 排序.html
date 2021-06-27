@@ -17,7 +17,7 @@
         var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-02A7A1BA-2820-406F-82DE-E63232A7999B&format=JSON';
 
 
-        var cities = ['新北市', '臺北市', '基隆市', '桃園市', '新竹縣', '新竹市', '苗栗縣', '台中市', '彰化縣', '南投縣', '雲林縣', '嘉義縣', '嘉義市', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '台東縣', '澎湖縣', '金門縣', '連江縣'];
+        var cities = ['新北市', '臺北市', '基隆市', '桃園市', '新竹縣', '新竹市', '苗栗縣', '臺中市', '彰化縣', '南投縣', '雲林縣', '嘉義縣', '嘉義市', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '台東縣', '澎湖縣', '金門縣', '連江縣'];
         var orgData = {};
 
     
@@ -48,7 +48,7 @@
 
                 cities.forEach((city) => {
                     console.log(city);
-                    section.innerHTML +=`<div>${city} -${orgData[city]["startTime"]} - ${orgData[city]["endTime"]} - ${orgData[city]["wx"]} </div>`;
+                    section.innerHTML +=`<div>${city} -${orgData[city]['startTime']} - ${orgData[city]['endTime']} - ${orgData[city]["wx"]} </div>`;
                 })
             });
     </script>
